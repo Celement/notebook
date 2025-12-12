@@ -239,7 +239,7 @@ export const teekConfig = defineTeekConfig({
     enabled: true, // 是否启用友情链接卡片
     list: [
       {
-        name: "Teeker",
+        name: "elementsong",
         desc: "朝圣的使徒，正在走向编程的至高殿堂！",
         avatar: "https://testingcf.jsdelivr.net/gh/Kele-Bingtang/static/user/avatar2.png",
         link: "http://notes.teek.top/",
@@ -279,7 +279,7 @@ export const teekConfig = defineTeekConfig({
       },
     ],
     // 自定义额外信息
-    appendInfo: [{ key: "index", label: "站点作者", value: "Teeker" }],
+    appendInfo: [{ key: "index", label: "站点作者", value: "elementsong" }],
   },
   // 社交信息配置，通常为一个社交图标，点击后将会跳转到社交软件的个人主页
   social: [

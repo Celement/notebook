@@ -8,7 +8,7 @@ import { version } from "../../packages/teek/version";
 
 export const teekConfig = defineTeekConfig({
   sidebarTrigger: true,
-  author: { name: "Teeker", link: "https://github.com/Kele-Bingtang" },
+  author: { name: "elementsong", link: "https://github.com/Kele-Bingtang" },
   blogger: {
     name: "天客",
     slogan: "朝圣的使徒，正在走向编程的至高殿堂！",
