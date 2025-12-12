@@ -77,6 +77,33 @@ export default defineConfig({
       infoLabel: "信息",
       detailsLabel: "详细信息",
     },
+    config: md => {
+      const escapeAngles = (text: string) =>
+        text.replace(/<([A-Za-z?][^<>/=:\"']*)>/g, (_m, inner) => `&lt;${inner}&gt;`);
+      const shouldEscapeHtmlInline = (content: string) => {
+        const s = content.trim();
+        if (!s.startsWith("<") || !s.endsWith(">")) return false;
+        if (s.startsWith("</")) return false;
+        const inner = s.slice(1, -1).trim();
+        if (!inner || /[=:"'\/]/.test(inner)) return false;
+        const name = inner.split(/\s+/)[0];
+        if (/^[a-z][a-z0-9-]*$/.test(name)) return false;
+        return true;
+      };
+      md.core.ruler.after("inline", "escape-generics", state => {
+        for (const token of state.tokens) {
+          if (token.type !== "inline" || !token.children) continue;
+          for (const child of token.children) {
+            if (!child.content) continue;
+            if (child.type === "text") {
+              child.content = escapeAngles(child.content);
+            } else if (child.type === "html_inline" && shouldEscapeHtmlInline(child.content)) {
+              child.content = child.content.replace(/^<([\s\S]*?)>$/, (_m, inner) => `&lt;${inner}&gt;`);
+            }
+          }
+        }
+      });
+    },
   },
   sitemap: {
     hostname: "https://vp.teek.top",
