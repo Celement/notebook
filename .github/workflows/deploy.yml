@@ -30,9 +30,16 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
 
       - name: Install Dependencies
         run: pnpm install
+
+      - name: Build Workspace Packages (stub)
+        run: pnpm run stub
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
       - name: Determine BASE
         id: base
@@ -59,8 +66,8 @@ jobs:
     needs: build
     environment:
       name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
-        id: deploy
+        id: deployment
         uses: actions/deploy-pages@v4
