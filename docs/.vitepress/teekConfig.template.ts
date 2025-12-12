@@ -89,8 +89,8 @@ export const teekConfig = defineTeekConfig({
   },
   // 文章默认的作者信息
   author: {
-    name: "Teeker", // 作者名称
-    link: "https://github.com/Kele-Bingtang", // 点击作者名称后跳转的链接
+    name: "elementsong", // 作者名称
+    link: "https://github.com/Celement", // 点击作者名称后跳转的链接
   },
   // 公告配置
   notice: {
@@ -286,12 +286,12 @@ export const teekConfig = defineTeekConfig({
     {
       icon: "mdi:github",
       name: "GitHub",
-      link: "https://github.com/kele-bingtang",
+      link: "https://github.com/Celement",
     },
     {
       icon: "simple-icons:gitee",
       name: "Gitee",
-      link: "https://gitee.com/kele-bingtang",
+      link: "https://github.com/Celement",
     },
   ],
   // 页脚信息组配置

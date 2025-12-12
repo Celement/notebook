@@ -52,7 +52,7 @@ export const teekConfig = defineTeekConfig({
   },
   markdown: {
     demo: {
-      githubUrl: "https://github.com/Kele-Bingtang/vitepress-theme-teek/blob/master/docs",
+      githubUrl: "https://github.com/Celement",
     },
   },
   siteAnalytics: [

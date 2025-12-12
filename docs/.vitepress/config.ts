@@ -43,7 +43,7 @@ export default defineConfig({
     ["meta", { property: "og:url", content: "https://vp.teek.top" }],
     ["meta", { property: "og:description", description }],
     ["meta", { name: "description", description }],
-    ["meta", { name: "author", content: "Teeker" }],
+    ["meta", { name: "author", content: "elementsong" }],
     // 禁止浏览器缩放
     // [
     //   "meta",
