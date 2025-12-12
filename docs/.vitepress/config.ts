@@ -19,6 +19,7 @@ export default defineConfig({
   extends: teekConfig,
   title: "Vitepress Theme Teek",
   description: description,
+  base: process.env.BASE ?? "/",
   cleanUrls: true,
   lastUpdated: true,
   lang: "zh-CN",
