@@ -1,5 +1,5 @@
 import { defineConfig } from "vitepress";
-import type { Plugin } from "vite";
+// import type { Plugin } from "vite";
 import llmstxt from "vitepress-plugin-llms";
 import { teekConfig } from "./teekConfig";
 // 本地 Teek 主题包引用（与 Teek 在线主题包引用 二选一）
@@ -24,13 +24,11 @@ export default defineConfig({
   lastUpdated: true,
   lang: "zh-CN",
   rewrites: {
-    "31.java课件/:rest*": "java/:rest*",
-    "32.netty笔记/:rest*": "netty/:rest*",
-    "33.JUC笔记/:rest*": "juc/:rest*",
-    "34.收藏的博客/:rest*": "blogs/:rest*",
+    "java系列/:rest*": "java/:rest*",
     "性能测试/:rest*": "性能测试/:rest*",
     "python文档/:rest*": "python文档/:rest*",
-    "vue3/:rest*": "vue3/:rest*",
+    "前端系列/:rest*": "前端系列/:rest*",
+    "Ai系列/:rest*": "Ai系列/:rest*",
   },
   head: [
     ["link", { rel: "icon", type: "image/svg+xml", href: "/teek-logo-mini.svg" }],
@@ -135,13 +133,11 @@ export default defineConfig({
     },
     nav: [
       { text: "首页", link: "/" },
-      { text: "Java课件", link: "/java", activeMatch: "/java/" },
-      { text: "Netty笔记", link: "/netty", activeMatch: "/netty/" },
-      { text: "JUC笔记", link: "/juc", activeMatch: "/juc/" },
-      { text: "收藏的博客", link: "/blogs", activeMatch: "/blogs/" },
+      { text: "Java系列", link: "/java", activeMatch: "/java/" },
       { text: "性能测试", link: "/性能测试", activeMatch: "/性能测试/" },
       { text: "Python文档", link: "/python文档", activeMatch: "/python文档/" },
-      { text: "Vue3", link: "/vue3", activeMatch: "/vue3/" },
+      { text: "前端系列", link: "/前端系列", activeMatch: "/前端系列/" },
+      { text: "Ai系列", link: "/Ai系列", activeMatch: "/Ai系列/" }, 
       {
         text: "功能页",
         items: [

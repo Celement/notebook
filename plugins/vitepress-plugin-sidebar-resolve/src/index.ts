@@ -57,11 +57,24 @@ export default function VitePluginVitePressSidebarResolve(option: SidebarOption 
       // 国际化多语言 key 数组
       const localesKeys = Object.keys(locales).filter(key => key !== "root");
 
+      // 计算运行时前缀：优先从 rewrites 找到与 path 对应的前缀，否则使用 path 本身
+      const runtimePrefix = (() => {
+        if (!path) return "/";
+        const cleanedPath = path.replace(/^\/+|\/+$/g, "");
+        const entry = Object.entries(rewrites).find(([k]) => k.startsWith(cleanedPath));
+        if (entry) {
+          const val = entry[1];
+          const seg = (val || "").split("/")[0];
+          return seg || cleanedPath || "/";
+        }
+        return cleanedPath || "/";
+      })();
+
       //  filePath 规则
       if (isFilePathRule) {
         // 如果不是多语言，直接自动生成结构化侧边栏
         if (!localesKeys.length) {
-          return setSideBar(themeConfig, createFilePathSidebar({ ...option, path: baseDir }), type);
+          return setSideBar(themeConfig, createFilePathSidebar({ ...option, path: baseDir }, runtimePrefix), type);
         }
 
         // 国际化处理，针对每个语言的目录进行单独的扫描（除了 root）
@@ -77,19 +90,19 @@ export default function VitePluginVitePressSidebarResolve(option: SidebarOption 
           ...option,
           path: `${baseDir}${rootDir}`,
           ignoreList: [...(ignoreList || []), ...localesKeys],
-        });
+        }, runtimePrefix);
         setSideBar(locales["root"].themeConfig, rootSideBar, type);
       }
       // rewrites 规则
       else if (isRewritesRule) {
         // 如果不是多语言，直接自动生成结构化侧边栏
         if (!localesKeys.length) {
-          return setSideBar(themeConfig, createRewritesSidebar(rewrites, { ...option, path: baseDir }), type);
+          return setSideBar(themeConfig, createRewritesSidebar(rewrites, { ...option, path: baseDir }, ""), type);
         }
 
         // 国际化处理，针对每个语言的目录进行单独的扫描（除了 root）
         localesKeys.forEach(localesKey => {
-          const sidebar = createRewritesSidebar(rewrites, { ...option, path: `${baseDir}/${localesKey}` }, localesKey);
+          const sidebar = createRewritesSidebar(rewrites, { ...option, path: `${baseDir}/${localesKey}` }, "");
           setSideBar(locales[localesKey].themeConfig, sidebar, type);
         });
 
@@ -100,7 +113,7 @@ export default function VitePluginVitePressSidebarResolve(option: SidebarOption 
           ...option,
           path: `${baseDir}${rootDir}`,
           ignoreList: [...(ignoreList || []), ...localesKeys],
-        });
+        }, "");
         setSideBar(locales["root"].themeConfig, rootSideBar, type);
       }
     },

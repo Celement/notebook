@@ -8,7 +8,7 @@ import { version } from "../../packages/teek/version";
 
 export const teekConfig = defineTeekConfig({
   sidebarTrigger: true,
-  author: { name: "elementsong", link: "https://github.com/Kele-Bingtang" },
+  author: { name: "elementsong", link: "https://github.com/Celement" },
   blogger: {
     name: "天客",
     slogan: "朝圣的使徒，正在走向编程的至高殿堂！",
@@ -44,7 +44,10 @@ export const teekConfig = defineTeekConfig({
   articleShare: { enabled: true },
   vitePlugins: {
     sidebarOption: {
-      initItems: false,
+      type: "object",
+      initItems: true,
+      initItemsText: true,
+      collapsed: true,
       ignoreIndexMd: true,
       ignoreList: ["assets", "media", /\.assets$/],
       resolveRule: "rewrites",
