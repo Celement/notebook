@@ -46,7 +46,7 @@ Pandas 官方网站（点击访问）提供了完善资料支持，及其良好�
 - Series 是带标签的一维数组，这里的标签可以理解为索引，但这个索引并不局限于整数，它也可以是字符类型，比如 a、b、c 等；
 - DataFrame 是一种表格型数据结构，它既有行标签，又有列标签。
 
- 
+
 | 数据结构  | 维度 | 说明                                                         |
 | --------- | ---- | ------------------------------------------------------------ |
 | Series    | 1    | 该结构能够存储各种数据类型，比如字符数、整数、浮点数、Python 对象等，Series 用 name 和 index 属性来描述 数据值。Series 是一维数据结构，因此其维数不可以改变 |
@@ -117,7 +117,7 @@ DataFrame 一个表格型的数据结构，既有行标签（index），又有�
 
 下表展示了上述表格中每一列标签所描述数据的数据类型，如下所示：
 
- 
+
 | Type | Column |
 | --- | --- |
 | String | name |
@@ -148,7 +148,7 @@ pd.DataFrame( data, index, columns, dtype, copy)
 
 参数说明：
 
- 
+
 | 参数名称 | 说明 |
 | --- | --- |
 | data | 输入的数据，可以是 ndarray，series，list，dict，标量以及一个 DataFrame。 |
@@ -173,7 +173,7 @@ pip  install  openpyxl
 ![在这里插入图片描述](https://raw.githubusercontent.com/Celement/mypicture/main/202512130946881.png)
 
 ### 字体
- 
+
 | 参数 | 含义 | 取值 |
 | --- | --- | --- |
 | name | 字体类型 | str |
@@ -200,7 +200,7 @@ pip  install  openpyxl
 上表为字体
 
 ### 边框
- 
+
 | 参数         | 含义                      | 取值 |
 | ------------ | ------------------------- | ---- |
 | bottom       | 下框线                    | Side |
@@ -217,7 +217,7 @@ pip  install  openpyxl
 | vertical     |                           | Side |
 
 ### 线条
- 
+
 | 参数         | 含义       | 取值                                                         |
 | ------------ | ---------- | ------------------------------------------------------------ |
 | border_style | 样式的别名 | 虚线hair 线点点dashDotDot 线点dashDot 细实线thin 中虚线mediumDashed 斜线点DashDot 点dotted 虚线dashed 中实线medium 粗实线thick 中线点mediumDashDot 双划线double 中线点点mediumDashDotDot |
@@ -225,7 +225,7 @@ pip  install  openpyxl
 | style        | 样式       | 同上border_style                                             |
 
 ### 填充
- 
+
 | 参数        | 含义     | 取值                                                         |
 | ----------- | -------- | ------------------------------------------------------------ |
 | fill_type   | 填充类型 | 不指定则无效， 取值看下方                                    |
@@ -236,7 +236,7 @@ pip  install  openpyxl
 | patternType | 填充类型 | {'darkUp', 'lightTrellis', 'darkHorizontal', 'darkGray', 'lightHorizontal', 'darkGrid', 'lightUp', 'darkDown', 'darkTrellis', 'lightGrid', 'lightGray', 'lightVertical', 'gray125', 'gray0625', 'mediumGray', 'lightDown', 'darkVertical', 'solid'} |
 
 ### 对齐
- 
+
 | 参数            | 含义         | 取值                                                         |
 | --------------- | ------------ | ------------------------------------------------------------ |
 | horizontal      | 水平对齐     | 两端对齐justify 跨列居中centerContinuous 靠右（缩进）right 居中center 常规general 填充fill 分散对齐（缩进）distributed 靠左（缩进）left |
